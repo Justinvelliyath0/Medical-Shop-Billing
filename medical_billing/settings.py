@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "authentication",
     "users",
     "medicine_management",
+    "billing",
 ]
 
 MIDDLEWARE = [
