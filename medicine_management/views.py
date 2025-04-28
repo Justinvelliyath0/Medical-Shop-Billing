@@ -1,3 +1,4 @@
+from rest_framework.pagination import PageNumberPagination
 from rest_framework.viewsets import ModelViewSet
 from medical_billing.permissions import IsInventoryManager
 from medicine_management.models import Medicine
@@ -11,6 +12,7 @@ class MedicineViewSet(ModelViewSet):
     queryset = Medicine.objects.all()
     serializer_class = MedicineSerializer
     permission_classes = (IsInventoryManager,)
+    pagination_class = PageNumberPagination
 
     def get_queryset(self):
         if self.action == "update":

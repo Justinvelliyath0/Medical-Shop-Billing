@@ -3,6 +3,7 @@ from datetime import datetime
 from django.db.models import Sum, Q, Count
 from rest_framework.exceptions import ValidationError
 from rest_framework.generics import ListAPIView
+from rest_framework.pagination import PageNumberPagination
 
 from billing.models import Bill
 from dashboard.serializers import BillingReportSerializer
@@ -15,11 +16,13 @@ class StockListView(ListAPIView):
     permission_classes = (IsAdmin,)
     serializer_class = MedicineListSerializer
     queryset = Medicine.objects.all()
+    pagination_class = PageNumberPagination
 
 
 class BillingReportView(ListAPIView):
     permission_classes = (IsAdmin,)
     serializer_class = BillingReportSerializer
+    pagination_class = PageNumberPagination
 
     def get_queryset(self):
 
