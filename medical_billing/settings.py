@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "users",
     "medicine_management",
     "billing",
+    "dashboard",
 ]
 
 MIDDLEWARE = [
