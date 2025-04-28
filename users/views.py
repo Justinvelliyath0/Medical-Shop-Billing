@@ -1,7 +1,11 @@
 from rest_framework import mixins, viewsets
 from medical_billing.permissions import IsAdmin
 from users.models import User
-from users.serializers import UserSerializer, UserListSerializer
+from users.serializers import (
+    UserSerializer,
+    UserListSerializer,
+    UserUpdateSerializer,
+)
 
 
 class UserViewSet(
@@ -17,4 +21,6 @@ class UserViewSet(
     def get_serializer_class(self):
         if self.action == "list":
             return UserListSerializer
+        if self.action == "update":
+            return UserUpdateSerializer
         return UserSerializer
