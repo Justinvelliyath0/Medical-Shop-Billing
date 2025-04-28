@@ -15,3 +15,13 @@ class UserListSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ["id", "username", "name", "role"]
+
+
+class UserUpdateSerializer(serializers.ModelSerializer):
+    name = serializers.CharField(required=False)
+    role = serializers.CharField(required=False)
+    username = serializers.CharField(required=False)
+
+    class Meta:
+        model = User
+        fields = ("name", "role", "username")
