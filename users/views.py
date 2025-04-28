@@ -1,4 +1,6 @@
 from rest_framework import mixins, viewsets
+from rest_framework.pagination import PageNumberPagination
+
 from medical_billing.permissions import IsAdmin
 from users.models import User
 from users.serializers import (
@@ -17,6 +19,7 @@ class UserViewSet(
 ):
     queryset = User.objects.all()
     permission_classes = (IsAdmin,)
+    pagination_class = PageNumberPagination
 
     def get_serializer_class(self):
         if self.action == "list":
